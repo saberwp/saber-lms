@@ -1,6 +1,5 @@
 class QuizScreen {
 
-
 	init() {
 
 		// Show start.
@@ -17,10 +16,7 @@ class QuizScreen {
 		startButtonEl.addEventListener('click', (e) => {
 
 			this.clearCanvas()
-			this.reviewScreenLoad()
-
-			// Restart button init.
-			this.restartButtonInit()
+			this.answerScreenLoad()
 
 		})
 
@@ -47,6 +43,19 @@ class QuizScreen {
 
 		// Append the new element to the container
 		quizCanvasEl.appendChild(startScreenContent);
+
+	}
+
+	answerScreenLoad() {
+
+		const screenTemplate = document.getElementById('quiz-screen-answer-template');
+		const quizCanvasEl = this.getCanvasEl();
+
+		// Create a new element from the template content
+		const screenContent = screenTemplate.content.cloneNode(true);
+
+		// Append the new element to the container
+		quizCanvasEl.appendChild(screenContent);
 
 	}
 

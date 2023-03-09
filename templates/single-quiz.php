@@ -6,14 +6,32 @@
 <?php
 
 /*
-	Load the template parts. 
+	Load the template parts.
 		- Each template is wrapped in a <template> tag.
 		- Templates are injected into the DOM when required by the QuizScreen JS class.
 */
 require_once( SABER_LMS_PATH . '/templates/parts/quiz-screen-start.php' );
+require_once( SABER_LMS_PATH . '/templates/parts/quiz-screen-answer.php' );
 require_once( SABER_LMS_PATH . '/templates/parts/quiz-screen-review.php' );
 
 ?>
+
+<?php
+
+/*
+ * Load question list.
+ */
+$question_list = new \SaberLms\QuestionList;
+$question_list->loadByQuiz( $post->ID );
+
+/*
+echo '<pre>';
+var_dump( $question_list );
+echo '</pre>';
+*/
+
+?>
+
 <?php get_footer('app'); ?>
 
 <script>

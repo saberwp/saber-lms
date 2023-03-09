@@ -18,6 +18,10 @@ class Plugin {
 		require_once(SABER_LMS_PATH.'/inc/post-types/question.php');
 		require_once(SABER_LMS_PATH.'/inc/post-types/quiz.php');
 
+		// Load classes.
+		require_once(SABER_LMS_PATH.'/inc/QuestionList.php');
+		require_once(SABER_LMS_PATH.'/inc/models/Question.php');
+
 		// Enqueue scripts.
 		add_action('wp_enqueue_scripts', function() {
 			//wp_enqueue_script( 'lms-course-list', SABER_LMS_URL . '/js/CourseList.js', array('backbone'), '1.0.0', true );
