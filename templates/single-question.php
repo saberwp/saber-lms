@@ -9,7 +9,7 @@
 			$answers = get_field('answer_list');
 
 			if( ! empty( $answers )) {
-				echo '<ul>';
+				echo '<ul class="answer-list">';
 				foreach( $answers as $answer ) {
 					echo '<li class="cursor-pointer font-medium text-lg hover:bg-green-800 hover:text-white">';
 					echo $answer['answer'];
@@ -19,8 +19,15 @@
 			}
 
 		?>
-		<button class="font-semibold text-white bg-gray-800 rounded-md px-4 py-2">ANSWER</button>
+		<button class="slms-answer-question font-semibold text-white bg-gray-800 rounded-md px-4 py-2">ANSWER</button>
 	</div>
 </div>
 
 <?php get_footer('app'); ?>
+
+<script>
+
+const answer = new Answer()
+answer.init()
+
+</script>

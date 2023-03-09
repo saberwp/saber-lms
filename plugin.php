@@ -22,6 +22,10 @@ class Plugin {
 			//wp_enqueue_script( 'lms-course-list', SABER_LMS_URL . '/js/CourseList.js', array('backbone'), '1.0.0', true );
 			wp_enqueue_script( 'lms-question-list', SABER_LMS_URL . '/js/QuestionList.js', array('backbone'), '1.0.0', true );
 			wp_enqueue_script( 'lms-question', SABER_LMS_URL . '/js/Question.js', array('backbone'), '1.0.0', true );
+			wp_enqueue_script( 'lms-answer', SABER_LMS_URL . '/js/Answer.js', array(), '1.0.0', true );
+			wp_enqueue_script( 'lms-lock', SABER_LMS_URL . '/js/Lock.js', array(), '1.0.0', true );
+			wp_enqueue_script( 'lms-mark', SABER_LMS_URL . '/js/Mark.js', array(), '1.0.0', true );
+			wp_enqueue_script( 'lms-score', SABER_LMS_URL . '/js/Score.js', array(), '1.0.0', true );
 		});
 
 		// Template include.
