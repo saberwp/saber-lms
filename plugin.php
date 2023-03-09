@@ -27,6 +27,7 @@ class Plugin {
 			wp_enqueue_script( 'lms-lock', SABER_LMS_URL . '/js/Lock.js', array(), '1.0.0', true );
 			wp_enqueue_script( 'lms-mark', SABER_LMS_URL . '/js/Mark.js', array(), '1.0.0', true );
 			wp_enqueue_script( 'lms-score', SABER_LMS_URL . '/js/Score.js', array(), '1.0.0', true );
+			wp_enqueue_script( 'lms-quiz-screen', SABER_LMS_URL . '/js/QuizScreen.js', array(), '1.0.0', true );
 		});
 
 		// Template include.
@@ -42,6 +43,11 @@ class Plugin {
 		// Course single.
 		if (is_singular('course')) {
 			$template = SABER_LMS_PATH . 'templates/single-course.php';
+		}
+
+		// Quiz single.
+		if (is_singular('quiz')) {
+			$template = SABER_LMS_PATH . 'templates/single-quiz.php';
 		}
 
 		// Question single.
