@@ -15,6 +15,9 @@
 		<button id="quiz-next-button">
 			<span>NEXT</span>
 		</button>
+		<button id="quiz-review-button">
+			<span>REVIEW</span>
+		</button>
 	</div>
 
 </template>
