@@ -16,6 +16,7 @@ class Plugin {
 		require_once(SABER_LMS_PATH.'/inc/post-types/course.php');
 		require_once(SABER_LMS_PATH.'/inc/post-types/lesson.php');
 		require_once(SABER_LMS_PATH.'/inc/post-types/question.php');
+		require_once(SABER_LMS_PATH.'/inc/post-types/quiz.php');
 
 		// Enqueue scripts.
 		add_action('wp_enqueue_scripts', function() {
