@@ -123,11 +123,24 @@ class QuizScreen {
 
 		// Set the answer list.
 		const questionAnswerListEl = document.getElementById('question-answer-list')
+
+		// Render the answer list.
 		questionAnswerListEl.innerHTML = ''
-		question.answerList.forEach((answer) => {
+		const listItemClassList = ['cursor-pointer', 'px-2', 'py-1', 'my-1', 'rounded-md', 'font-medium', 'text-lg', 'hover:bg-green-800', 'hover:text-white']
+		question.answerList.forEach((answer, answerIndex) => {
 			const answerEl = document.createElement('li')
+
+			// Add classes to list item.
+			answerEl.classList.add(...listItemClassList);
+
 			answerEl.innerHTML = answer.answer
 			questionAnswerListEl.appendChild( answerEl )
+
+			// Set correct answer index.
+			if( answer.correct === true ) {
+				questionAnswerListEl.setAttribute('correct-index', answerIndex)
+			}
+
 		})
 
 		// Init the answering script.

@@ -13,6 +13,9 @@ class Answer {
 		// Loop through the selectedAnswers array and remove the class from each element
 		selectedAnswers.forEach(function(item) {
 		  item.classList.remove('slms-answer-selected');
+			item.classList.remove('bg-blue-600')
+			item.classList.add('hover:bg-green-800')
+			item.classList.add('hover:text-white')
 		});
 
 	}
@@ -37,8 +40,6 @@ class Answer {
 
 	select(e) {
 
-		console.log('selected...')
-
 		const answer = new Answer()
 
 		// Clear selection.
@@ -46,6 +47,9 @@ class Answer {
 
 		// Select user choice.
 		e.currentTarget.classList.add('slms-answer-selected')
+		e.currentTarget.classList.add('bg-blue-600')
+		e.currentTarget.classList.remove('hover:bg-green-800')
+		e.currentTarget.classList.remove('hover:text-white')
 
 	}
 

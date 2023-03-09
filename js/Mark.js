@@ -5,8 +5,13 @@ class Mark {
 			// Get a reference to the <ul> element with the .answer-list class
 		const answerList = document.querySelector('.answer-list');
 
+		console.log('correctIndex:')
+		console.log(answerList)
+
 		// Get the value of the correct-index attribute
 		const correctIndex = answerList.getAttribute('correct-index');
+
+		console.log(correctIndex)
 
 		return parseInt(correctIndex)
 
