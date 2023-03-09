@@ -66,6 +66,7 @@ class Answer {
 			const result = mark.check()
 
 			// Record score.
+			const score = new Score()
 			score.record( result )
 
 		});

@@ -57,6 +57,32 @@ class QuizScreen {
 		// Append the new element to the container
 		quizCanvasEl.appendChild(screenContent);
 
+		// Do initial question loading.
+		this.questionLoad(0);
+
+	}
+
+	questionLoad( questionIndex ) {
+
+		// Get the question from the JSON question list output in PHP during quiz loading.
+		const question = saberLmsQuestionList.questions[ questionIndex ]
+
+		// Set the question text.
+		const questionTextEl = document.getElementById('question-text')
+		questionTextEl.innerHTML = question.text
+
+		// Set the answer list.
+		const questionAnswerListEl = document.getElementById('question-answer-list')
+		question.answerList.forEach((answer) => {
+			const answerEl = document.createElement('li')
+			answerEl.innerHTML = answer.answer
+			questionAnswerListEl.appendChild( answerEl )
+		})
+
+		// Init the answering script.
+		const answer = new Answer()
+		answer.init()
+
 	}
 
 	reviewScreenLoad() {

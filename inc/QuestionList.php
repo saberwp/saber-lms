@@ -39,6 +39,7 @@ class QuestionList {
 		// Set question model.
 		$question = new Question();
 		$question->id = $questionId;
+		$question->text = $questionPost->post_title;
 		$question->answerList = $answerListValues;
 
 		return $question;
