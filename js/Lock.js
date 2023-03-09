@@ -12,7 +12,7 @@ class Lock {
 		}
 
 		// Disable button.
-		const button = document.getElementsByClassName("slms-answer-question")[0];
+		const button = document.getElementById('quiz-answer-button')
 		button.disabled = true;
 
 	}

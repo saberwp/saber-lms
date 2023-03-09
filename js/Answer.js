@@ -52,10 +52,10 @@ class Answer {
 	answerEvent() {
 
 		// Get a reference to the button.slms-answer-question element
-		const questionButton = document.querySelector('button.slms-answer-question');
+		const answerButton = document.getElementById('quiz-answer-button');
 
 		// Set up a click event handler for the questionButton element
-		questionButton.addEventListener('click', () => {
+		answerButton.addEventListener('click', () => {
 
 			// Lock the question to prevent multiple answering.
 			const lock = new Lock()
@@ -66,7 +66,6 @@ class Answer {
 			const result = mark.check()
 
 			// Record score.
-			const score = new Score()
 			score.record( result )
 
 		});

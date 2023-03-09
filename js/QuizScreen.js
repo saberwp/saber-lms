@@ -1,4 +1,5 @@
 var currentQuestionIndex = 0;
+var score = new Score();
 
 class QuizScreen {
 
@@ -145,6 +146,13 @@ class QuizScreen {
 
 		// Append the new element to the container
 		quizCanvasEl.appendChild(screenContent);
+
+		// Set reporting data.
+		const correctReportEl = document.getElementById('quiz-report-correct')
+		correctReportEl.innerHTML = score.correctCount
+		const answerCountReportEl = document.getElementById('quiz-report-answer-count')
+		answerCountReportEl.innerHTML = score.answerCount
+
 
 	}
 
