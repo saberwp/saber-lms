@@ -1,3 +1,5 @@
+var currentQuestionIndex = 0;
+
 class QuizScreen {
 
 	init() {
@@ -15,8 +17,7 @@ class QuizScreen {
 		const startButtonEl = document.getElementById('quiz-start-button')
 		startButtonEl.addEventListener('click', (e) => {
 
-			this.clearCanvas()
-			this.answerScreenLoad()
+			this.answerScreenReset()
 
 		})
 
@@ -46,6 +47,13 @@ class QuizScreen {
 
 	}
 
+	answerScreenReset() {
+
+		this.clearCanvas()
+		this.answerScreenLoad()
+
+	}
+
 	answerScreenLoad() {
 
 		const screenTemplate = document.getElementById('quiz-screen-answer-template');
@@ -57,12 +65,37 @@ class QuizScreen {
 		// Append the new element to the container
 		quizCanvasEl.appendChild(screenContent);
 
-		// Do initial question loading.
-		this.questionLoad(0);
+		// Setup question navigation buttons.
+		this.quizNavigationButtonsInit();
+
+	}
+
+	quizNavigationButtonsInit() {
+
+		// Next button.
+		const quizNextButtonEl = document.getElementById('quiz-next-button');
+		quizNextButtonEl.addEventListener('click', (e) => {
+			this.answerScreenReset()
+			const nextQuestionIndex = currentQuestionIndex +1
+			this.questionLoad(nextQuestionIndex)
+		})
+
+		// Previous button.
+		const quizPreviousButtonEl = document.getElementById('quiz-previous-button');
+		quizPreviousButtonEl.addEventListener('click', (e) => {
+			this.answerScreenReset()
+			const nextQuestionIndex = currentQuestionIndex -1
+			this.questionLoad(nextQuestionIndex)
+		})
 
 	}
 
 	questionLoad( questionIndex ) {
+
+		console.log('question load request for ' + questionIndex)
+
+		// Save updated current question index.
+		currentQuestionIndex = questionIndex
 
 		// Get the question from the JSON question list output in PHP during quiz loading.
 		const question = saberLmsQuestionList.questions[ questionIndex ]
@@ -73,6 +106,7 @@ class QuizScreen {
 
 		// Set the answer list.
 		const questionAnswerListEl = document.getElementById('question-answer-list')
+		questionAnswerListEl.innerHTML = ''
 		question.answerList.forEach((answer) => {
 			const answerEl = document.createElement('li')
 			answerEl.innerHTML = answer.answer
@@ -103,10 +137,9 @@ class QuizScreen {
 	}
 
 	clearCanvas() {
-
-		const quizCanvasEl = document.getElementById('quiz-canvas');
+		const quizCanvasEl = document.getElementById('quiz-canvas')
+		quizCanvasEl.removeChild( quizCanvasEl.firstElementChild )
 		quizCanvasEl.innerHTML = ''
-
 	}
 
 }

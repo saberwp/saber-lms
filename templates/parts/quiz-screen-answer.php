@@ -8,4 +8,13 @@
 		</div>
 	</div>
 
+	<div>
+		<button id="quiz-previous-button">
+			<span>PREVIOUS</span>
+		</button>
+		<button id="quiz-next-button">
+			<span>NEXT</span>
+		</button>
+	</div>
+
 </template>
