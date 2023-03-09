@@ -5,13 +5,8 @@ class Mark {
 			// Get a reference to the <ul> element with the .answer-list class
 		const answerList = document.querySelector('.answer-list');
 
-		console.log('correctIndex:')
-		console.log(answerList)
-
 		// Get the value of the correct-index attribute
 		const correctIndex = answerList.getAttribute('correct-index');
-
-		console.log(correctIndex)
 
 		return parseInt(correctIndex)
 
@@ -65,17 +60,31 @@ class Mark {
 
 	showCorrect(selectedIndex) {
 
+		// Color highlighting.
 		const ul = document.querySelector('.answer-list');
 		const selectedLi = ul.children[selectedIndex];
-		selectedLi.classList.add('slms-answer-correct');
+		ul.classList.remove('bg-emerald-100');
+		ul.classList.add('bg-emerald-200');
+		selectedLi.classList.add('bg-emerald-500');
+
+		// Text report.
+		const answerResultEl = document.getElementById('quiz-answer-result')
+		answerResultEl.innerHTML = 'CORRECT'
 
 	}
 
 	showIncorrect(selectedIndex) {
 
+		// Color highlighting.
 		const ul = document.querySelector('.answer-list');
 		const selectedLi = ul.children[selectedIndex];
-		selectedLi.classList.add('slms-answer-incorrect');
+		ul.classList.remove('bg-emerald-100');
+		ul.classList.add('bg-red-200');
+		selectedLi.classList.add('bg-red-500');
+
+		// Text report.
+		const answerResultEl = document.getElementById('quiz-answer-result')
+		answerResultEl.innerHTML = 'INCORRECT'
 
 	}
 

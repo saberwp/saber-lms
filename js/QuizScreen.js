@@ -27,6 +27,10 @@ class QuizScreen {
 
 		const buttonEl = document.getElementById('quiz-restart-button')
 		buttonEl.addEventListener('click', (e) => {
+
+			// Reset the global score var.
+			score = new Score()
+			
 			this.clearCanvas()
 			this.startScreenLoad()
 			this.startButtonInit()
