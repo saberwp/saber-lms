@@ -2,5 +2,9 @@
 	<h1>
 		<?php the_content(); ?>
 	</h1>
-	<div>START SCREEN</div>
+	<button id="quiz-start-button">
+		<span>
+			START QUIZ
+		</span>
+	</button>
 </template>
