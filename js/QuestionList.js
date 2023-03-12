@@ -38,6 +38,3 @@ class QuestionList {
 	}
 
 }
-
-const questionList = new QuestionList()
-questionList.load()

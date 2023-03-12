@@ -27,6 +27,7 @@ class Plugin {
 
 		// Enqueue scripts.
 		add_action('wp_enqueue_scripts', function() {
+
 			//wp_enqueue_script( 'lms-course-list', SABER_LMS_URL . '/js/CourseList.js', array('backbone'), '1.0.0', true );
 			wp_enqueue_script( 'lms-question-list', SABER_LMS_URL . '/js/QuestionList.js', array('backbone'), '1.0.0', true );
 			wp_enqueue_script( 'lms-question', SABER_LMS_URL . '/js/Question.js', array('backbone'), '1.0.0', true );
@@ -35,12 +36,50 @@ class Plugin {
 			wp_enqueue_script( 'lms-mark', SABER_LMS_URL . '/js/Mark.js', array(), '1.0.0', true );
 			wp_enqueue_script( 'lms-score', SABER_LMS_URL . '/js/Score.js', array(), '1.0.0', true );
 			wp_enqueue_script( 'lms-quiz-screen', SABER_LMS_URL . '/js/QuizScreen.js', array(), '1.0.0', true );
+
+			// Course script for registration.
+			if (is_singular('course')) {
+				wp_enqueue_script( 'lms-course', SABER_LMS_URL . '/js/Course.js', array(), '1.0.0', true );
+				wp_localize_script( 'lms-course', 'saberLmsData', array(
+		    	'nonce' => wp_create_nonce( 'wp_rest' ),
+		    ));
+			}
+
 		});
 
 		// Template include.
 		add_filter('template_include', [$this, 'template'] );
 
+		// API routes.
+		add_action( 'rest_api_init', [$this, 'apiEndpoints'] );
 
+	}
+
+	public function apiEndpoints() {
+
+		register_rest_route(
+      'saberlms/v1',
+      '/course/(?P<course_id>\d+)/register',
+      array(
+        'methods'             => 'POST',
+        'callback'            => [$this, 'courseRegisterUser'],
+				'permission_callback' => '__return_true'
+      )
+    );
+
+	}
+
+	public function courseRegisterUser( $data ) {
+
+		$course_id = $data['course_id'];
+		$user_id = get_current_user_id(); // get the ID of the currently logged-in user
+		$registerData = new stdClass;
+		$registerData->registration_date = date('Y-m-d');
+		update_user_meta( $user_id, 'course_' . $course_id, $registerData );
+		return array(
+			'success' => true,
+			'message' => 'User registered to course ' . $course_id,
+		);
 
 	}
 

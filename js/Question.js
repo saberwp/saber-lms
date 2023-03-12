@@ -2,8 +2,6 @@ class Question {
 
 	load( id ) {
 
-		console.log('loading 1 question...')
-
 		var Question = Backbone.Model.extend({
 		  urlRoot: '/wp-json/wp/v2/question'
 		});
@@ -21,6 +19,3 @@ class Question {
 	}
 
 }
-
-const question = new Question()
-question.load(348)
