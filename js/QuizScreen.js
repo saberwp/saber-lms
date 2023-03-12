@@ -30,10 +30,25 @@ class QuizScreen {
 
 			// Reset the global score var.
 			score = new Score()
-			
+
 			this.clearCanvas()
 			this.startScreenLoad()
 			this.startButtonInit()
+		})
+
+	}
+
+	continueButtonInit() {
+
+		const buttonEl = document.getElementById('quiz-continue-button')
+		buttonEl.addEventListener('click', (e) => {
+
+			this.clearCanvas()
+			this.answerScreenLoad()
+
+			// The question loaded is the currentQuestionIndex which should remain unchanged since before the student visited the review page.
+			this.questionLoad( currentQuestionIndex )
+
 		})
 
 	}
@@ -109,6 +124,7 @@ class QuizScreen {
 			this.clearCanvas()
 			this.reviewScreenLoad()
 			this.restartButtonInit()
+			this.continueButtonInit()
 		})
 
 	}
