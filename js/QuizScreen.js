@@ -53,6 +53,17 @@ class QuizScreen {
 
 	}
 
+	exitButtonInit() {
+
+		const buttonEl = document.getElementById('quiz-exit-button')
+		buttonEl.addEventListener('click', (e) => {
+
+			window.location.href = '/dashboard'
+
+		})
+
+	}
+
 	startScreenLoad() {
 
 		const startScreenTemplate = document.getElementById('quiz-screen-start-template');
@@ -125,6 +136,7 @@ class QuizScreen {
 			this.reviewScreenLoad()
 			this.restartButtonInit()
 			this.continueButtonInit()
+			this.exitButtonInit()
 		})
 
 	}
