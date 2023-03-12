@@ -1,9 +1,14 @@
+// Setup global vars.
 var currentQuestionIndex = 0;
 var score = new Score();
+
 
 class QuizScreen {
 
 	init() {
+
+		// Set question count.
+		score.questionCount = saberLmsQuestionList.questions.length
 
 		// Show start.
 		this.startScreenLoad()
@@ -30,6 +35,9 @@ class QuizScreen {
 
 			// Reset the global score var.
 			score = new Score()
+
+			// Set question count.
+			score.questionCount = saberLmsQuestionList.questions.length
 
 			this.clearCanvas()
 			this.startScreenLoad()
@@ -192,12 +200,25 @@ class QuizScreen {
 		// Append the new element to the container
 		quizCanvasEl.appendChild(screenContent);
 
+		// Set question count.
+		const questionCountEl = document.getElementById('quiz-question-count')
+		questionCountEl.innerHTML = score.questionCount
+
 		// Set reporting data.
 		const correctReportEl = document.getElementById('quiz-report-correct')
 		correctReportEl.innerHTML = score.correctCount
 		const answerCountReportEl = document.getElementById('quiz-report-answer-count')
 		answerCountReportEl.innerHTML = score.answerCount
-
+		const scorePercentageEl = document.getElementById('quiz-report-score-percentage')
+		scorePercentageEl.innerHTML = score.getScorePercentageFormatted()
+		const passFailEl = document.getElementById('quiz-report-pass-fail')
+		passFailEl.innerHTML = score.getPassFailResult()
+		const answerCountReportEl2 = document.getElementById('quiz-report-answer-count-2')
+		answerCountReportEl2.innerHTML = score.answerCount
+		const unansweredCountEl = document.getElementById('quiz-report-unanswered-count')
+		unansweredCountEl.innerHTML = score.getUnansweredCount()
+		const incorrectCountEl = document.getElementById('quiz-report-incorrect-count')
+		incorrectCountEl.innerHTML = score.incorrectCount
 
 	}
 

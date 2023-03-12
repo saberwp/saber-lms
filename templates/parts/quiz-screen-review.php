@@ -7,7 +7,7 @@
 			<?php the_title(); ?>
 		</h1>
 		<h2 class="text-gray-400 font-semibold text-lg">
-			10 Questions
+			<span id="quiz-question-count"></span> Questions
 		</h2>
 
 	</header>
@@ -57,7 +57,7 @@
 				<!-- Score Percentage Stat -->
 				<div class="basis-1/3 p-4 my-0 flex flex-col gap-2 items-center">
 					<div class="text-4xl font-bold text-gray-800">
-						88%
+						<span id="quiz-report-score-percentage"></span>
 					</div>
 					<h2 class="text-lg font-semibold text-gray-800 text-center">Score Percentage</h2>
 				</div>
@@ -65,7 +65,7 @@
 				<!-- Pass/Fail Stat -->
 				<div class="basis-1/3 p-4 my-0 flex flex-col gap-2 items-center">
 					<div class="text-4xl font-bold text-gray-800">
-						FAIL
+						<span id="quiz-report-pass-fail"></span>
 					</div>
 					<h2 class="text-lg font-semibold text-gray-800 text-center">Pass/Fail Result</h2>
 				</div>
@@ -78,7 +78,7 @@
 				<!-- Correct Questions Stat -->
 				<div class="basis-1/3 p-4 my-0 flex flex-col gap-2 items-center">
 					<div class="text-2xl font-bold text-gray-800">
-						<span id="quiz-report-answer-count">0</span>
+						<span id="quiz-report-answer-count-2">0</span>
 					</div>
 					<h2 class="text-base font-semibold text-gray-800 text-center">Questions Answered</h2>
 				</div>
@@ -86,15 +86,15 @@
 				<!-- Score Percentage Stat -->
 				<div class="basis-1/3 p-4 my-0 flex flex-col gap-2 items-center">
 					<div class="text-2xl font-bold text-gray-800">
-						4
+						<span id="quiz-report-unanswered-count"></span>
 					</div>
 					<h2 class="text-base font-semibold text-gray-800 text-center">Questions Unanswered</h2>
 				</div>
 
-				<!-- Pass/Fail Stat -->
+				<!-- Questions Incorrect Stat -->
 				<div class="basis-1/3 p-4 my-0 flex flex-col gap-2 items-center">
 					<div class="text-2xl font-bold text-gray-800">
-						2
+						<span id="quiz-report-incorrect-count"></span>
 					</div>
 					<h2 class="text-base font-semibold text-gray-800 text-center">Questions Incorrect</h2>
 				</div>
