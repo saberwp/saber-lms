@@ -1,7 +1,7 @@
 <?php get_header('app'); ?>
 
 	<!-- Quiz canvas, dynamically populated by JS using DOM injection of <template> tags. -->
-	<div id="quiz-canvas" class="bg-gray-100 my-6 rounded-md p-4 max-w-2xl mx-auto"></div>
+	<div id="quiz-canvas" class="w-full my-6 rounded-md p-4 md:max-w-5xl md:mx-auto"></div>
 
 <?php
 
