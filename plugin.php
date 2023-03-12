@@ -52,6 +52,11 @@ class Plugin {
 			$template = SABER_LMS_PATH . 'templates/single-course.php';
 		}
 
+		// Lesson single.
+		if (is_singular('lesson')) {
+			$template = SABER_LMS_PATH . 'templates/single-lesson.php';
+		}
+
 		// Quiz single.
 		if (is_singular('quiz')) {
 			$template = SABER_LMS_PATH . 'templates/single-quiz.php';
