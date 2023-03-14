@@ -144,4 +144,105 @@ array(
 'show_in_rest' => 0,
 ));
 
-endif;		
+acf_add_local_field_group(array(
+'key' => 'group_640dee4db682f',
+'title' => 'Saber LMS > Courses > Lesson List',
+'fields' => array(
+array(
+'key' => 'field_640dee4e6bce0',
+'label' => 'Lesson List',
+'name' => 'lesson_list',
+'aria-label' => '',
+'type' => 'relationship',
+'instructions' => '',
+'required' => 0,
+'conditional_logic' => 0,
+'wrapper' => array(
+	'width' => '',
+	'class' => '',
+	'id' => '',
+),
+'post_type' => array(
+	0 => 'lesson',
+	1 => 'quiz',
+),
+'taxonomy' => '',
+'filters' => array(
+	0 => 'search',
+	1 => 'taxonomy',
+),
+'return_format' => 'id',
+'min' => '',
+'max' => '',
+'elements' => '',
+),
+),
+'location' => array(
+array(
+array(
+	'param' => 'post_type',
+	'operator' => '==',
+	'value' => 'course',
+),
+),
+),
+'menu_order' => 0,
+'position' => 'normal',
+'style' => 'default',
+'label_placement' => 'top',
+'instruction_placement' => 'label',
+'hide_on_screen' => '',
+'active' => true,
+'description' => '',
+'show_in_rest' => 0,
+));
+
+acf_add_local_field_group(array(
+'key' => 'group_640df1363abf6',
+'title' => 'Saber LMS > Lessons > Course',
+'fields' => array(
+array(
+'key' => 'field_640df136f5c78',
+'label' => 'Course',
+'name' => 'course',
+'aria-label' => '',
+'type' => 'post_object',
+'instructions' => '',
+'required' => 0,
+'conditional_logic' => 0,
+'wrapper' => array(
+	'width' => '',
+	'class' => '',
+	'id' => '',
+),
+'post_type' => array(
+	0 => 'course',
+),
+'taxonomy' => '',
+'return_format' => 'id',
+'multiple' => 0,
+'allow_null' => 0,
+'ui' => 1,
+),
+),
+'location' => array(
+array(
+array(
+	'param' => 'post_type',
+	'operator' => '==',
+	'value' => 'lesson',
+),
+),
+),
+'menu_order' => 0,
+'position' => 'normal',
+'style' => 'default',
+'label_placement' => 'top',
+'instruction_placement' => 'label',
+'hide_on_screen' => '',
+'active' => true,
+'description' => '',
+'show_in_rest' => 0,
+));
+
+endif;
